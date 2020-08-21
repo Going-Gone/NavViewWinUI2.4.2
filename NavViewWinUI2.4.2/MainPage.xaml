@@ -1,0 +1,53 @@
+﻿<Page
+    x:Class="NavViewWinUI2._4._2.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NavViewWinUI2._4._2"
+    xmlns:controls="using:Microsoft.UI.Xaml.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Control.Resources>
+        <DataTemplate x:Key="MenuItemTitleTemplate">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="{Binding HeaderTitle}" />
+            </Grid>
+        </DataTemplate>
+
+        <SolidColorBrush x:Key="NavigationViewTopPaneBackground" Color="Transparent"/>
+        <!-- This takes care of the extra space after the last menu item -->
+        <!--<SolidColorBrush x:Key="TopNavigationViewItemBackgroundPointerOver" Color="#a3c0d9"/>-->
+        <SolidColorBrush x:Key="TopNavigationViewItemBackgroundPressed" Color="#78a2c7"/>
+        <SolidColorBrush x:Key="TopNavigationViewItemBackgroundSelected" Color="White"/>
+        <SolidColorBrush x:Key="NavigationViewItemBackground" Color="#477DAC"/>
+        <SolidColorBrush x:Key="NavigationViewItemBorderBrush" Color="#548ab8"/>
+        <!--Transparent  #c3cbd7  #548ab8-->
+        <SolidColorBrush x:Key="NavigationViewSelectionIndicatorForeground" Color="#78a2c7"/>
+    </Control.Resources>
+
+        <Grid>
+        <controls:NavigationView 
+                x:Name="nvMenu" 
+                IsBackButtonVisible="Collapsed"
+                IsSettingsVisible="False"
+                IsEnabled="True"
+                MenuItemsSource="{x:Bind Headers, Mode=OneWay}"
+                MenuItemTemplate="{StaticResource MenuItemTitleTemplate}"
+                HorizontalAlignment="Left"              
+                PaneDisplayMode="Top"
+                IsPaneToggleButtonVisible="False"
+                AlwaysShowHeader="False"
+                IsBackEnabled="False" >
+
+           
+
+
+        </controls:NavigationView>
+
+    </Grid>
+</Page>
